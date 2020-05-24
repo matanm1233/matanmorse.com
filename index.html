@@ -1,8 +1,78 @@
-<button onclick="myFunction()">Button</button><br>
-<p id=paragraph></p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    background-color: lightgray;
+    width: 300px;   
+    border: solid black 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;   
+    text-align: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+</head>
+</html>
+<div>
+    <h1><u>Customer</u></h1> 
+    <form>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br>
+        <label for="paymentMethod">Payment method:</label>
+        <input list ="paymentMethodOptions" type="text" id="paymentMethod">
+        <datalist id="paymentMethodOptions">
+            <option value="PayPal">PayPal</option>
+            <option value="Cashapp">Cashapp</option>
+            <option value="Messenger">Messenger</option>
+        </datalist>
+        <input onclick="showValues(); return false;" type="submit" value="Submit Info" style="margin-bottom: 20px;">
+    </form>
+ 
+</div>
+<br><br>
+<table id="userInfo">
+    <tr>
+        
+    </tr>
+</table>
+
+<p style="text-align: center" id="showEmail"></p>
+<p style="text-align: center" id="showPayment"></p>
+<span id="spanresult"></span>
 <script>
-    function myFunction(){
-        document.getElementById("paragraph").innerHTML = "button clicked"
-    }
+function showValues() {
+    let table = document.getElementById("userInfo");
+    let row = table.insertRow(1)
+
+    let fname = row.insertCell(0);
+    let lname = row.insertCell(1);
+    let email = row.insertCell(2);
+    let paymentMethod = row.insertCell (3);
+
+    fname.innerHTML = document.getElementById("fname").value;
+    lname.innerHTML = document.getElementById("lname").value;
+    email.innerHTML = document.getElementById("email").value;   
+    paymentMethod.innerHTML = document.getElementById("paymentMethod").value;
+}
 </script>
