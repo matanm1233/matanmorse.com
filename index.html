@@ -56,10 +56,8 @@ tr:nth-child(even) {
         
     </tr>
 </table>
+<button onclick="downloadFile()">Create Excel</button>
 
-<p style="text-align: center" id="showEmail"></p>
-<p style="text-align: center" id="showPayment"></p>
-<span id="spanresult"></span>
 <script>
 function showValues() {
     let table = document.getElementById("userInfo");
@@ -75,4 +73,9 @@ function showValues() {
     email.innerHTML = document.getElementById("email").value;   
     paymentMethod.innerHTML = document.getElementById("paymentMethod").value;
 }
+
+function downloadFile(){
+XLSX.writeFile(workbook, 'out.xlsb');
+}
 </script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
